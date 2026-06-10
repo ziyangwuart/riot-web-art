@@ -1,0 +1,3 @@
+# Cloudflare Pages — SPA fallback
+# 任何未知路径都回退到 index.html
+/*    /index.html   200
