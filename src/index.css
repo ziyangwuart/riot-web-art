@@ -1,0 +1,367 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-style='netscape'] {
+  color-scheme: dark;
+  --ink: #ffcc00;
+  --primary: #0000ee;
+  --secondary: #000080;
+  --accent: #ff0000;
+  --shadow: #000000;
+  --shadow-2: #444444;
+  --glow: rgba(255, 204, 0, 0.4);
+  --grid: rgba(0, 0, 238, 0.25);
+  --ink-shadow: #000000;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: plain;
+  --stage-filter: none;
+  --stage-letter-spacing: 0em;
+  --stage-size-mul: 1;
+  --stage-opacity-mul: 1;
+  --stage-mix-blend: normal;
+  --stage-noise: 0.25;
+  --font-marker: 'Times New Roman', Times, 'Songti SC', 'Noto Serif SC', serif;
+  --font-stencil: 'Times New Roman', Times, serif;
+  --font-typewriter: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-han: 'Times New Roman', 'Noto Serif SC', serif;
+  --font-zhi: 'Times New Roman', 'Noto Serif SC', serif;
+}
+
+[data-style='webmaster'] {
+  --ink: #c0c0c0;
+  --primary: #800000;
+  --secondary: #222222;
+  --accent: #ffcc00;
+  --shadow: #666666;
+  --shadow-2: #999999;
+  --glow: rgba(128, 0, 0, 0.18);
+  --grid: rgba(128, 0, 0, 0.2);
+  --ink-shadow: #800000;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: grid;
+  --stage-filter: contrast(1.05);
+  --stage-noise: 0.4;
+  --font-marker: 'Times New Roman', Times, serif;
+  --font-stencil: 'Times New Roman', Times, serif;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-han: 'Times New Roman', 'Noto Serif SC', serif;
+  --font-zhi: 'Times New Roman', 'Noto Serif SC', serif;
+}
+
+[data-style='construction'] {
+  --ink: #000000;
+  --primary: #ffcc00;
+  --secondary: #ffffff;
+  --accent: #ff0000;
+  --shadow: #1a1a1a;
+  --shadow-2: #333333;
+  --glow: rgba(255, 204, 0, 0.25);
+  --grid: rgba(255, 204, 0, 0.35);
+  --ink-shadow: #000000;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: stripes;
+  --stage-filter: none;
+  --stage-letter-spacing: 0.1em;
+  --stage-size-mul: 1.05;
+  --stage-noise: 0.5;
+  --font-marker: 'Courier New', Courier, monospace;
+  --font-stencil: 'Courier New', Courier, monospace;
+  --font-typewriter: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-display: 'Courier New', Courier, monospace;
+  --font-han: 'Courier New', Courier, monospace;
+  --font-zhi: 'Courier New', Courier, monospace;
+}
+
+[data-style='webring'] {
+  --ink: #003300;
+  --primary: #66ff99;
+  --secondary: #ccffcc;
+  --accent: #ffff66;
+  --shadow: #001a00;
+  --shadow-2: #004d00;
+  --glow: rgba(102, 255, 153, 0.22);
+  --grid: rgba(102, 255, 153, 0.25);
+  --ink-shadow: #000000;
+  --void: #000000;
+  --paper: #001a00;
+  --bg-pattern: radial;
+  --stage-filter: contrast(1.1) saturate(1.1);
+  --stage-mix-blend: screen;
+  --stage-noise: 0.3;
+}
+
+[data-style='guestbook'] {
+  --ink: #ffccff;
+  --primary: #cc33cc;
+  --secondary: #330066;
+  --accent: #ff66cc;
+  --shadow: #cc99cc;
+  --shadow-2: #aa66aa;
+  --glow: rgba(204, 51, 204, 0.22);
+  --grid: rgba(204, 51, 204, 0.22);
+  --ink-shadow: #330066;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: plain;
+  --stage-filter: contrast(1.05) saturate(1.1);
+  --stage-letter-spacing: 0.02em;
+  --stage-size-mul: 1.05;
+  --stage-noise: 0.35;
+  --font-marker: 'Comic Sans MS', 'Comic Sans', cursive;
+  --font-stencil: 'Comic Sans MS', 'Comic Sans', cursive;
+  --font-display: 'Comic Sans MS', 'Comic Sans', cursive;
+  --font-han: 'Comic Sans MS', 'Comic Sans', cursive;
+  --font-zhi: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+[data-style='plain'] {
+  --ink: #ffffff;
+  --primary: #0000ee;
+  --secondary: #000000;
+  --accent: #ff0000;
+  --shadow: #cccccc;
+  --shadow-2: #666666;
+  --glow: rgba(0, 0, 238, 0.05);
+  --grid: rgba(0, 0, 0, 0.1);
+  --ink-shadow: #000000;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: plain;
+  --stage-filter: none;
+  --stage-opacity-mul: 0.95;
+  --stage-noise: 0.15;
+  --font-marker: 'Times New Roman', Times, serif;
+  --font-stencil: 'Times New Roman', Times, serif;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-han: 'Times New Roman', 'Noto Serif SC', serif;
+  --font-zhi: 'Times New Roman', 'Noto Serif SC', serif;
+}
+
+[data-style='terminal'] {
+  --ink: #000000;
+  --primary: #33ff33;
+  --secondary: #aaffaa;
+  --accent: #ffff33;
+  --shadow: #001a00;
+  --shadow-2: #003300;
+  --glow: rgba(51, 255, 51, 0.25);
+  --grid: rgba(51, 255, 51, 0.2);
+  --ink-shadow: #000000;
+  --void: #000000;
+  --paper: #000000;
+  --bg-pattern: scan;
+  --stage-filter: none;
+  --stage-mix-blend: screen;
+  --stage-noise: 0.2;
+  --font-marker: 'Courier New', Courier, monospace;
+  --font-stencil: 'Courier New', Courier, monospace;
+  --font-typewriter: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-display: 'Courier New', Courier, monospace;
+  --font-han: 'Courier New', Courier, monospace;
+  --font-zhi: 'Courier New', Courier, monospace;
+}
+
+[data-style='zine'] {
+  --ink: #f4f1de;
+  --primary: #0a0a0a;
+  --secondary: #0a0a0a;
+  --accent: #d72638;
+  --shadow: #d6d3d1;
+  --shadow-2: #a8a29e;
+  --glow: rgba(0, 0, 0, 0.06);
+  --grid: rgba(0, 0, 0, 0.2);
+  --ink-shadow: #0a0a0a;
+  --void: #000000;
+  --paper: #ffffff;
+  --bg-pattern: plain;
+  --stage-filter: contrast(1.15) grayscale(0.2);
+  --stage-letter-spacing: 0.05em;
+  --stage-opacity-mul: 0.95;
+  --stage-mix-blend: multiply;
+  --stage-noise: 0.7;
+  --font-marker: 'Special Elite', 'Courier New', monospace;
+  --font-stencil: 'Special Elite', 'Courier New', monospace;
+  --font-typewriter: 'Special Elite', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-display: 'Special Elite', 'Courier New', monospace;
+  --font-han: 'Special Elite', 'Courier New', monospace;
+  --font-zhi: 'Special Elite', 'Courier New', monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--secondary);
+  font-family: var(--font-mono), monospace;
+  overflow: hidden;
+}
+
+body {
+  cursor: crosshair;
+}
+
+.riot-noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: calc(var(--stage-noise, 0.6));
+}
+
+.riot-scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(0, 0, 0, 0.12) 3px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+}
+
+.bleed {
+  text-shadow:
+    2px 0 0 var(--primary),
+    -2px 0 0 var(--secondary);
+  mix-blend-mode: screen;
+}
+
+.smudge {
+  filter: contrast(1.2) saturate(0.8);
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.glitch::before {
+  color: var(--primary);
+  transform: translate(-2px, 0);
+  mix-blend-mode: screen;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation: glitchX 2.4s infinite steps(1);
+}
+.glitch::after {
+  color: var(--secondary);
+  transform: translate(2px, 0);
+  mix-blend-mode: screen;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  animation: glitchX 3.2s infinite steps(1) reverse;
+}
+
+@keyframes glitchX {
+  0%,
+  90% {
+    transform: translate(0, 0);
+  }
+  92% {
+    transform: translate(-4px, 0);
+  }
+  94% {
+    transform: translate(3px, 0);
+  }
+  96% {
+    transform: translate(-2px, 0);
+  }
+  98% {
+    transform: translate(4px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.tape {
+  background: var(--secondary);
+  color: var(--ink);
+  padding: 2px 8px;
+  font-family: var(--font-typewriter), monospace;
+  letter-spacing: 0.02em;
+  box-shadow: 2px 2px 0 var(--primary);
+}
+
+.riot-border {
+  border: 1.5px solid var(--primary);
+  box-shadow:
+    4px 4px 0 var(--secondary),
+    8px 8px 0 var(--primary);
+}
+
+.no-cursor {
+  caret-color: var(--primary);
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+  outline: 1px dashed var(--primary);
+  outline-offset: 4px;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.cursor-target {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><circle cx='14' cy='14' r='6' fill='none' stroke='%23d72638' stroke-width='2'/><line x1='14' y1='0' x2='14' y2='6' stroke='%23d72638' stroke-width='1.5'/><line x1='14' y1='22' x2='14' y2='28' stroke='%23d72638' stroke-width='1.5'/><line x1='0' y1='14' x2='6' y2='14' stroke='%23d72638' stroke-width='1.5'/><line x1='22' y1='14' x2='28' y2='14' stroke='%23d72638' stroke-width='1.5'/></svg>")
+      14 14,
+    crosshair;
+}
+
+/* 90s 蓝链下划线 */
+.legacy-link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-y: auto;
+  }
+}
