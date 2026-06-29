@@ -1,5 +1,5 @@
-// 跨域抓取 — 三个公共代理并行竞速，谁先返回有效 HTML 谁赢
-// 同时用 AbortController 取消其他请求，避免带宽浪费
+// 跨域抓取 — 优先走站点自带的 Pages Function（与部署域同源，浏览器永远可达）
+// 公共代理仅作为最后兜底
 
 interface ProxyCandidate {
   name: string
@@ -7,12 +7,17 @@ interface ProxyCandidate {
 }
 
 const PROXIES: ProxyCandidate[] = [
+  // ★ 自建代理：部署在 https://riot-web-art.pages.dev/api/proxy，与站点同域，无 CORS 问题
+  {
+    name: 'riot-pages-fn',
+    build: (u) => `https://riot-web-art.pages.dev/api/proxy?url=${encodeURIComponent(u)}`,
+  },
+  // 公共代理作为兜底（如果自建挂了）
   { name: 'allorigins', build: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}` },
   { name: 'corsproxy', build: (u) => `https://corsproxy.io/?${encodeURIComponent(u)}` },
-  { name: 'codetabs', build: (u) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(u)}` },
 ]
 
-const HARD_TIMEOUT_MS = 12_000
+const HARD_TIMEOUT_MS = 15_000
 
 export async function fetchViaProxy(url: string): Promise<string> {
   const controller = new AbortController()
@@ -35,13 +40,12 @@ export async function fetchViaProxy(url: string): Promise<string> {
   })
 
   try {
-    // Promise.any 拿到第一个成功的结果，并自动忽略其他失败
     const winner = await Promise.any(jobs)
-    controller.abort() // 取消其它仍在进行的请求
+    controller.abort()
     return winner
   } catch (e) {
     throw new Error(
-      `无法访问目标站点（所有公共代理都失败或超时）。\n${
+      `无法访问目标站点（所有代理都失败或超时）。\n${
         e instanceof Error ? e.message : String(e)
       }`,
     )
